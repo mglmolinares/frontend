@@ -26,7 +26,7 @@ function parseJwt(token) {
     return JSON.parse(jsonPayload); // Convertir a objeto JSON
 }
 const userInfo = parseJwt(token);
-console.log(userInfo); // Aquí estará la información del usuario (id, rol, etc.)
+// console.log(userInfo); // Aquí estará la información del usuario (id, rol, etc.)
 let info = document.getElementById("info")
 info.innerHTML = `Bienvenid@ : ${userInfo.usuario}`
 var idUsuarioSeleccionado = null;
@@ -93,7 +93,7 @@ const cerrar = () => {
             Swal.fire({
                 title: "Adiós!",
                 text: "Tu sesión se ha cerrado.",
-                html: `<img src="/web/img/mano.gif" alt="custom icon" style="width: 100px; height: 100px;">`, // Imagen personalizada
+                html: `<img src="/img/mano.gif" alt="custom icon" style="width: 100px; height: 100px;">`, // Imagen personalizada
                 showConfirmButton: true,
                 confirmButtonText: "Aceptar",
                 confirmButtonColor: "#28a745" // Cambiar el color si es necesario
@@ -335,15 +335,11 @@ const cargarReportes = () => {
             });
         }
 
-        // Verifica si response.data es un array
 
-        // let data = response.data;
-        console.log(response.data)
 
         // Recorre el array de datos
         response.data.forEach(item => {
-            // Formatear la fecha en "YYYY-MM-DD"
-            // const fechaRegistro = new Date(item.fecha_registro).toISOString().split('T')[0];
+
 
             // Agrega los datos a la tabla
             tabla.row.add([
@@ -389,7 +385,7 @@ const editReportes = (button) => {
             document.getElementById('edit-fecha-inicio-tratamiento').value = report.fecha_inicio_tratamiento;
             document.getElementById('edit-fecha-fin-tratamiento').value = report.fecha_fin_tratamiento;
 
-            console.log(report);
+            
 
             // Cargar reportes después de obtener los datos
             cargarReportes();
@@ -542,7 +538,7 @@ const guardarCambiosReportes = () => {
         fecha_inicio_tratamiento: fecha_inicio_tratamiento,
         fecha_fin_tratamiento: fecha_fin_tratamiento
     }
-    console.log(data)
+    
     axios({
         method: 'PUT',
         url: `https://backend1-eta-ebon.vercel.app/editar_reporte/${id_reporte}`,
@@ -593,7 +589,7 @@ btnEditBuscar.addEventListener('click', async () => {
         if (userData.informacion === 'Usuario no encontrado') {
             alert('Usuario no encontrado');
         } else {
-            console.log(userData);
+            // console.log(userData);
 
             const tablaBuscar = document.getElementById('tabla-edit-buscar');
             const tbody = tablaBuscar.querySelector('tbody');
@@ -624,7 +620,7 @@ btnBuscar.addEventListener('click', async () => {
         if (userData.informacion === 'Usuario no encontrado') {
             alert('Usuario no encontrado');
         } else {
-            console.log("este es el usuario :", userData);
+            // console.log("este es el usuario :", userData);
 
             // Display the search result in the table
             const tablaBuscar = document.getElementById('tabla-buscar');
@@ -655,7 +651,7 @@ const Seleccionar = (elemento) => {
     const idUsuario = fila.cells[0].textContent;
     idUsuarioSeleccionado = idUsuario;
 
-    console.log('ID de usuario seleccionado:', idUsuarioSeleccionado);
+    // console.log('ID de usuario seleccionado:', idUsuarioSeleccionado);
     divBuscar.classList.add("collapse")
 }
 const editSeleccionar = (elemento) => {
@@ -665,7 +661,7 @@ const editSeleccionar = (elemento) => {
 
     // document.getElementById('edit-id-usuario').value = idUsuario;
     idUsuarioSeleccionado = idUsuario;
-    console.log('ID de usuario seleccionado:', idUsuarioSeleccionado);
+    // console.log('ID de usuario seleccionado:', idUsuarioSeleccionado);
     // tablaEditBuscar.classList.add("collapse")
     divEditBuscar.classList.add("collapse")
 

@@ -105,7 +105,7 @@ const logout = () => {
 
 var userInfo = parseJwt(token);
 info.innerHTML = `Bienvenid@ : ${userInfo.usuario}`;
-console.log(userInfo); // Aquí estará la información del usuario (id, rol, etc.)
+// console.log(userInfo); // Aquí estará la información del usuario (id, rol, etc.)
 
 // Tareas Trabajador
 var id_tarea;
@@ -113,7 +113,7 @@ var id_tarea;
 var form_huevos = document.getElementById("form-huevos");
 const cargarTareas = () => {
     const id_usuario = userInfo.id;
-    console.log(id_usuario)
+    
     axios.get(`https://backend1-eta-ebon.vercel.app/obtener_tareas_trabajador/${id_usuario}`, {
         headers: {
             'Content-Type': 'application/json',

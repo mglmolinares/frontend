@@ -36,7 +36,7 @@ const parseJwt = (token) => {
   return JSON.parse(jsonPayload); // Convertir a objeto JSON
 }
 const userInfo = parseJwt(token);
-console.log(userInfo)
+// console.log(userInfo)
 let info = document.getElementById("info")
 info.innerHTML = `Bienvenid@ : ${userInfo.usuario}`
 
@@ -132,7 +132,7 @@ const crearAlert = (elemento, id, mensaje) => {
   // Agrega un ID al nuevo div
   newDiv.setAttribute('id', id);
 
-  console.log("input :"+id)
+  // console.log("input :"+id)
   // Inserta el nuevo div como primer hijo del div padre, antes del label e input
   if (id==='alert-id_usuario') {
     parentDiv.parentNode.insertBefore(newDiv, parentDiv);
@@ -290,7 +290,7 @@ const agregarUsuarios = (event) => {
     contraseña: contraseña,
     id_rol: rol
   }
-  console.log(data)
+  // console.log(data)
   axios({
     method: 'POST',
     url: 'https://backend1-eta-ebon.vercel.app/nuevo_usuario', data,
@@ -326,7 +326,7 @@ const cargarUsuarios = () => {
     url: 'https://backend1-eta-ebon.vercel.app/total_usuarios',
   })
     .then(function (response) {
-      console.log(response.data)
+      // console.log(response.data)
       document.getElementById('num_usuarios').innerHTML = `${response.data.total} Usuarios Registrados`;
     })
     .catch(err => console.log('Error: ', err));
@@ -339,7 +339,7 @@ const cargarUsuarios = () => {
     url: 'https://backend1-eta-ebon.vercel.app/obtener_usuarios',
   })
     .then(function (response) {
-      console.log(response.data)
+      // console.log(response.data)
 
       const tabla = $('#tablacontacs').DataTable(); // Acceder a la tabla DataTable
       tabla.clear(); // Limpiar las filas actuales de DataTables
@@ -404,7 +404,7 @@ const editarUsuarios = (button) => {
       document.getElementById('edit-usuario-contraseña').value = user.contraseña;
       document.getElementById('edit-usuario-rol').value = user.id_rol;
 
-      console.log(user);
+      // console.log(user);
 
       // Mostrar el modal de edición (si aplica)
       // const modal = new bootstrap.Modal(document.getElementById('modalEdit'));
@@ -540,11 +540,7 @@ const guardarCambiosUsuarios = () => {
     contraseña: contraseña,
     id_rol: rol
   };
-  console.log(typeof (edad));
-  console.log(typeof (rol));
-  console.log(typeof (id));
 
-  console.log(data)
 
 
   axios.put(`https://backend1-eta-ebon.vercel.app/editar_usuario/${id}`, data, {
@@ -581,7 +577,7 @@ const cargarTareas = () => {
     url: 'https://backend1-eta-ebon.vercel.app/obtener_tareas',
 
   }).then(function (response) {
-    console.log(response.data)
+    // console.log(response.data)
 
     const tabla = $('#taskTable').DataTable(); // Acceder a la tabla DataTable
     tabla.clear(); // Limpiar las filas actuales de DataTables
@@ -645,9 +641,7 @@ const editarTareas = (button) => {
         document.getElementById('edit-buscar').value = usuario;
         idUsuarioSeleccionado = report.id_usuario
 
-        // Mostrar información en la consola para verificar
-        console.log("ultimo log..................")
-        console.log(`id_tareas: ${report.id_tareas}, descripcion: ${report.descripcion}, fecha de asignacion: ${report.fecha_asignacion}, estado: ${report.estado}, id_usuario: ${report.id_usuario}`);
+       
       } else {
         alert('No se encontró la tarea.');
       }
@@ -664,7 +658,7 @@ const guardarCambiosTareas = () => {
   const fecha_asignacion = document.getElementById('edit-fecha_asignacion').value;
   const estado = document.getElementById('edit-estado').value;
   const id_usuario = parseInt(idUsuarioSeleccionado);
-  console.log(id, descripcion, fecha_asignacion, estado, id_usuario)
+  // console.log(id, descripcion, fecha_asignacion, estado, id_usuario)
 
   if (descripcion === "") {
     crearAlert('edit-descripcion', 'alert-edit-descripcion', 'Por favor, seleccione una descripción')
@@ -784,8 +778,8 @@ const agregarTareas = (event) => {
     estado: estado,
     id_usuario: id_usuario
   }
-  console.log(data)
-  console.log(typeof (id_usuario))
+  // console.log(data)
+  // console.log(typeof (id_usuario))
   axios({
     method: 'POST',
     url: 'https://backend1-eta-ebon.vercel.app/agregar_tarea', data,
@@ -1159,7 +1153,7 @@ const guardarCambiosGalpon = () => {
 const buscarUsuarioEdit = async () => {
 
   const busqueda = inputEditBuscar.value.trim();
-  console.log(busqueda)
+  // console.log(busqueda)
   // / Mostrar el spinner
   const spinner = document.getElementById("spinner-edit"); // Asegúrate de que el spinner tenga este ID
   spinner.classList.remove("d-none"); // Muestra el spinner
@@ -1174,7 +1168,7 @@ const buscarUsuarioEdit = async () => {
     if (userData.informacion === 'Usuario no encontrado') {
       alert('Usuario no encontrado');
     } else {
-      console.log(userData);
+      // console.log(userData);
 
       // Display the search results in the table
       const tablaBuscar = document.getElementById('div-edit-buscar');
@@ -1210,7 +1204,7 @@ const buscarUsuarioEdit = async () => {
 const buscarUsuario = async () => {
   const busqueda = inputBuscar.value.trim();
 
-  console.log(busqueda);
+  // console.log(busqueda);
   if (!busqueda) {
     document.getElementById("alertusuario").innerHTML = "Por favor, seleccione un usuario"
     document.getElementById("alertusuario").classList.remove("d-none")
@@ -1229,12 +1223,12 @@ const buscarUsuario = async () => {
       // Cambia la URL aquí
       const response = await axios.get(`https://backend1-eta-ebon.vercel.app/buscar_usuario_tb/${busqueda}`);
       const userData = response.data;
-      console.log(userData);
+      // console.log(userData);
 
       if (userData.informacion === 'Usuario no encontrado') {
         alert('Usuario no encontrado');
       } else {
-        console.log(userData);
+        // console.log(userData);
 
         // Mostrar los resultados de búsqueda en la tabla
         const tablaBuscar = document.getElementById('tabla-buscar');
@@ -1272,7 +1266,7 @@ const Seleccionar = (elemento) => {
   const idUsuario = fila.cells[0].textContent;
   idUsuarioSeleccionado = idUsuario;
 
-  console.log('ID de usuario seleccionado:', idUsuarioSeleccionado);
+  // console.log('ID de usuario seleccionado:', idUsuarioSeleccionado);
   tablaBuscar.classList.add("collapse")
 }
 const editSeleccionar = (elemento) => {
@@ -1281,7 +1275,7 @@ const editSeleccionar = (elemento) => {
 
 
   idUsuarioSeleccionado = idUsuario;
-  console.log('ID de usuario seleccionado:', idUsuarioSeleccionado);
+  // console.log('ID de usuario seleccionado:', idUsuarioSeleccionado);
   edittablaBuscar.classList.add("collapse")
 }
 

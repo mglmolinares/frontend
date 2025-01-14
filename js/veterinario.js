@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     Swal.fire({
         position: "top-end",
         title: `Bienvenid@ : ${userInfo.usuario}`,
-        html: `<img src="/web/img/hola.gif" alt="custom icon" style="width: 100px; height: 100px;">`, // Imagen personalizada
+        html: `<img src="/img/hola.gif" alt="custom icon" style="width: 100px; height: 100px;">`, // Imagen personalizada
         showConfirmButton: false,
         timer: 1500
     });

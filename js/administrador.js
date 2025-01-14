@@ -66,7 +66,7 @@ const cerrar = () => {
       Swal.fire({
         title: "Adiós!",
         text: "Tu sesión se ha cerrado.",
-        html: `<img src="/web/img/mano.gif" alt="custom icon" style="width: 100px; height: 100px;">`, // Imagen personalizada
+        html: `<img src="/img/mano.gif" alt="custom icon" style="width: 100px; height: 100px;">`, // Imagen personalizada
         showConfirmButton: true,
         confirmButtonText: "Aceptar",
         confirmButtonColor: "#28a745" // Cambiar el color si es necesario

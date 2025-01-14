@@ -26,7 +26,7 @@
         });
 
        
-        fetch('http://127.0.0.1:3000/obtener_usuarios'
+        fetch('https://backend1-eta-ebon.vercel.app/obtener_usuarios'
             ,{
                 headers: {
                     'Content-Type': 'application/json',
@@ -80,7 +80,7 @@
             }
         });
 
-        fetch('http://127.0.0.1:3000/total_huevos',{
+        fetch('https://backend1-eta-ebon.vercel.app/total_huevos',{
             headers: {
                 'Content-Type': 'application/json',
                 // 'Authorization': `Bearer ${token}`
@@ -132,7 +132,7 @@ const chartAves = new Chart(ctxAves, {
 });
 
 // Fetch los datos de la API para aves
-fetch('http://127.0.0.1:3000/total_aves_por_galpon',
+fetch('https://backend1-eta-ebon.vercel.app/total_aves_por_galpon',
     {headers: {
         'Content-Type': 'application/json',
         // 'Authorization': `Bearer ${token}`
@@ -188,7 +188,7 @@ const chartLotesAves = new Chart(ctxLotesAves, {
 });
 
 // Fetch los datos de la API para lotes
-fetch('http://127.0.0.1:3000/lotes_y_aves_por_galpon',{
+fetch('https://backend1-eta-ebon.vercel.app/lotes_y_aves_por_galpon',{
     headers: {
         'Content-Type': 'application/json',
         // 'Authorization': `Bearer ${token}`
@@ -232,7 +232,7 @@ const chartTareas = new Chart(ctxTareas, {
 });
 
 // Fetch los datos de la API para tareas
-fetch('http://127.0.0.1:3000/tareas_pendientes_por_usuario', {
+fetch('https://backend1-eta-ebon.vercel.app/tareas_pendientes_por_usuario', {
     headers: {
         'Content-Type': 'application/json',
         // 'Authorization': `Bearer ${token}`
@@ -281,7 +281,7 @@ const chartDiagnosticos = new Chart(ctxDiagnosticos, {
 });
 
 // Fetch los datos de la API para diagnósticos
-fetch('http://127.0.0.1:3000/frecuencia_diagnostico',
+fetch('https://backend1-eta-ebon.vercel.app/frecuencia_diagnostico',
     {headers: {
         'Content-Type': 'application/json',
         // 'Authorization': `Bearer ${token}`
